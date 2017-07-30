@@ -1,6 +1,6 @@
 //this component handles the app template used on every page.
 import React, {PropTypes} from 'react';
-import Header from './common/Header'
+import Header from './common/Header';
 class App extends React.Component{
   render(){
     return (

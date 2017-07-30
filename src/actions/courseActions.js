@@ -1,3 +1,4 @@
 export function createCourse(course){
-  return {type: 'CREATE_COURSE', course}
+  //debugger step 1
+  return {type: 'CREATE_COURSE', course};
 }

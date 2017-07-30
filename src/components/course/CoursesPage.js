@@ -1,4 +1,7 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import * as courseActions from '../../actions/courseActions';
+
 class CoursesPage extends React.Component {
   constructor(props, context){
     super(props,context);
@@ -15,12 +18,18 @@ class CoursesPage extends React.Component {
     this.setState({course: course});
   }
   onClickSave(){
-    alert(`Saving ${this.state.course.title}`);
+    this.props.dispatch(courseActions.createCourse(this.state.course));
+  }
+  courseRow(course, index){
+    return <div key={index}>{course.title}</div>;
   }
   render(){
+    //debugger step 4, but also is step 1;
     return (
       <div>
         <h1>Courses</h1>
+        {this.props.courses.map(this.courseRow)}
+
         <h2>Add Couse</h2>
         <input
           type="text"
@@ -34,5 +43,21 @@ class CoursesPage extends React.Component {
     );
   }
 }
+CoursesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired
+};
 
-export default CoursesPage;
+function mapStateToProps(state, ownProps){
+  //debugger step 3
+  return{
+    courses: state.courses// somehow comming from the reducers folder index.js rootReducer
+
+  };
+}
+
+const connectedStateAndProps = connect(mapStateToProps);
+export default connectedStateAndProps(CoursesPage);
+
+//export default connect(mapStateToProps, mapDispatchToProps) (CoursesPage);
+//this was the original and we dont use mapDispatchToProps becuase we use the default from connect
