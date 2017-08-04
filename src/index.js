@@ -6,10 +6,12 @@ import {Provider} from 'react-redux';
 
 import {Router, browserHistory} from 'react-router';
 import routes from './routes';
+import {loadCourses} from "./actions/courseActions";
 import './styles/style.css';//webpack cn import files too
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore();//I can pass parameters to initialize but not in this course
+store.dispatch(loadCourses());
 
 render (
   <Provider store={store}>

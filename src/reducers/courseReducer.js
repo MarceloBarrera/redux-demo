@@ -7,7 +7,8 @@ export default function courseReducer(state = [], action){
       return [...state,
         Object.assign({}, action.course)//spread operator to retunr new state
         ];
-
+    case types.LOAD_COURSES_SUCCESS:
+      return action.courses;
     default:
       return state;
   }
