@@ -2,8 +2,9 @@ import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi';
 
 export function createCourse(course){
-  //debugger step 1
+  //debugger step 1 from the react-redux flow
   return {type: types.CREATE_COURSE, course};
+  //return {type: types.CREATE_COURSE, course: course}; this also works but on ES6 is simpler by naming convention
 }
 export function loadCoursesSuccess(courses){
   return {type: types.LOAD_COURSES_SUCCESS, courses};

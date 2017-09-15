@@ -3,10 +3,15 @@ import initialState from './initialState';
 
 export default function courseReducer(state = initialState.courses, action){
   switch(action.type){
+    //we should not mutate state like example below! better return new objecr so use spread operator for that
+    // case "CREATE_COURSE":
+    //   state.push(action.course);
+    //   return state;
     case types.CREATE_COURSE:
-    //debugger; step 2
-      return [...state,
-        Object.assign({}, action.course)//spread operator to retunr new state
+    //debugger; step 2 from the react-redux flow
+      return [...state, // ...state returns a new instance of state array
+        Object.assign({}, action.course)//object assign will create deep copy of action.course and both operations will make a new array
+                                        // all this to return new state!
         ];
     case types.CREATE_COURSE_SUCCESS:
       return [
