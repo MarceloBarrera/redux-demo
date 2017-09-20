@@ -17,6 +17,7 @@ export class ManageCoursePage extends React.Component {
     this.updateCourseState = this.updateCourseState.bind(this);
     this.saveCourse = this.saveCourse.bind(this);
   }
+  //react sometimes run it even if state did no change!
   componentWillReceiveProps(nextProps) {
     if (this.props.course.id != nextProps.course.id) {
       // Necessary to populate form when existing course is loaded directly.
@@ -61,12 +62,12 @@ ManageCoursePage.contextTypes = {
 
 function getCourseById(courses, courseId) {
   const course =  courses.filter(course=> course.id==courseId);
-  if(course) return course[0];// filter returns an array so I grab first
+  if(course.length > 0) return course[0];// filter returns an array so I grab first
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
-  const courseId = ownProps.params.id; // from the path `/course/:id`
+  const courseId = ownProps.params.id; // from the path `/course/:id`  check <Route path="course/:id" component={ManageCoursePage}/> on routes.js file
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
   if(courseId && state.courses.length > 0){
     course= getCourseById(state.courses, courseId);

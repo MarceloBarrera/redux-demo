@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
-import courseApi from '../api/mockCourseApi';
+import courseApi from '../api/mockCourseApi'; //if we if we want real api we can change only this line
+import {beginAjaxCall} from './ajaxStatusActions';
 
 export function createCourse(course){
   //debugger step 1 from the react-redux flow
@@ -17,10 +18,10 @@ export function createCourseSuccess(course) {
 export function updateCourseSuccess(course) {
   return {type: types.UPDATE_COURSE_SUCCESS, course};
 }
-
+//this is our thunk API call, returns a fuction actions
 export function loadCourses(){
-
   return function (dispatch) {
+    dispatch(beginAjaxCall());
     return courseApi.getAllCourses().then(courses=> {
       dispatch(loadCoursesSuccess(courses));
     }).catch(
@@ -32,6 +33,7 @@ export function loadCourses(){
 //getState could be use for accesing redux store
 export function saveCourse(course) {
   return function (dispatch, getState) {
+    dispatch(beginAjaxCall());
     return courseApi.saveCourse(course).then(savedCourse => {
       course.id ? dispatch(updateCourseSuccess(savedCourse)) :
         dispatch(createCourseSuccess(savedCourse));

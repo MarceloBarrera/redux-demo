@@ -1,6 +1,7 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
+//it is handling an array of courses for testing purposes
 export default function courseReducer(state = initialState.courses, action){
   switch(action.type){
     //we should not mutate state like example below! better return new objecr so use spread operator for that

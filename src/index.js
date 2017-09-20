@@ -19,6 +19,7 @@ const store = configureStore();
 //well if you are wanting to rehydrate your store using some separate state thats passed down from the server or stored in local storage, then this
 //is a good place to do so
 
+//here I pass actions that I like to dispatch:
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 
