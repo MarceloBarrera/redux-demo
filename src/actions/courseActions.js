@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi'; //if we if we want real api we can change only this line
-import {beginAjaxCall} from './ajaxStatusActions';
+import {ajaxCallError, beginAjaxCall} from './ajaxStatusActions';
 
 export function createCourse(course){
   //debugger step 1 from the react-redux flow
@@ -38,6 +38,7 @@ export function saveCourse(course) {
       course.id ? dispatch(updateCourseSuccess(savedCourse)) :
         dispatch(createCourseSuccess(savedCourse));
     }).catch(error => {
+      dispatch(ajaxCallError(error));
       throw(error);
     });
   };
