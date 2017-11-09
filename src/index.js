@@ -10,9 +10,11 @@ import {loadCourses} from "./actions/courseActions";
 import {loadAuthors} from "./actions/authorActions";
 
 import './styles/style.css';//webpack cn import files too
+import './styles/table-data-style.css';//webpack cn import files too
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
-
+import '../node_modules/react-datasheet/lib/react-datasheet.css';
 const store = configureStore();
 //if you were creating a server render app you might choose to pass parameters INitial state to the configure store method but not in this course
 //dont be confused by Reducers initial state default parameter
