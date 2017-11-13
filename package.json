@@ -19,11 +19,13 @@
     "jquery": "2.2.3",
     "prop-types": "^15.6.0",
     "react": "^15.4.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-datasheet": "^1.2.14",
     "react-dom": "^15.4.0",
     "react-redux": "4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "4.0.4",
+    "react-scrollbar-js": "^1.0.1",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
     "toastr": "2.1.2"
