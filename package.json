@@ -14,6 +14,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ag-grid": "^14.1.1",
+    "ag-grid-react": "^14.0.0",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "jquery": "2.2.3",
@@ -22,6 +24,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-datasheet": "^1.2.14",
     "react-dom": "^15.4.0",
+    "react-dom-factories": "^1.0.2",
     "react-redux": "4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "4.0.4",
