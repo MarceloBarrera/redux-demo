@@ -1,13 +1,14 @@
 import React, {Component} from "react";
 import {AgGridReact} from "ag-grid-react";
 
-export default class extends Component {
+export class SimpleGridExample extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       columnDefs: this.createColumnDefs(),
-      rowData: this.createRowData()
+      rowData: this.createRowData(),
+      rowSelection: "single"
     };
   }
 
@@ -20,9 +21,9 @@ export default class extends Component {
 
   createColumnDefs() {
     return [
-      {headerName: "Make", field: "make"},
-      {headerName: "Model", field: "model"},
-      {headerName: "Price", field: "price"}
+      {headerName: "Make", field: "make",editable: true},
+      {headerName: "Model", field: "model",editable: true},
+      {headerName: "Price", field: "price",editable: true}
     ];
   }
 
@@ -32,6 +33,21 @@ export default class extends Component {
       {make: "Ford", model: "Mondeo", price: 32000},
       {make: "Porsche", model: "Boxter", price: 72000}
     ];
+  }
+
+  onSelectionChanged() {
+    if(!this.gridApi)
+      return;
+    var selectedRows = this.gridApi.getSelectedRows();
+    var selectedRowsString = "";
+    selectedRows.forEach(function(selectedRow, index) {
+      if (index !== 0) {
+        selectedRowsString += ", ";
+      }
+      selectedRowsString += selectedRow.athlete;
+    });
+    //document.querySelector("#selectedRows").innerHTML = selectedRowsString;
+    console.log(selectedRowsString)
   }
 
   render() {
@@ -44,14 +60,19 @@ export default class extends Component {
       <div style={containerStyle} className="ag-fresh">
         <h1>Simple ag-Grid React Example</h1>
         <AgGridReact
+          id="myGrid"
           // properties
           columnDefs={this.state.columnDefs}
           rowData={this.state.rowData}
 
           // events
-          onGridReady={this.onGridReady}>
-        </AgGridReact>
+          onGridReady={this.onGridReady}
+          rowSelection={this.state.rowSelection}
+          onSelectionChanged={this.onSelectionChanged.bind(this)}
+        />
+
       </div>
     );
   }
 }
+export default SimpleGridExample;
