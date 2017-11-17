@@ -18,6 +18,7 @@ import '../node_modules/react-datasheet/lib/react-datasheet.css';
 
 import "../node_modules/ag-grid/dist/styles/ag-grid.css";
 import "../node_modules/ag-grid/dist/styles/theme-fresh.css";
+import "../src/styles/hot-style.css";
 
 const store = configureStore();
 //if you were creating a server render app you might choose to pass parameters INitial state to the configure store method but not in this course

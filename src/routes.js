@@ -7,6 +7,8 @@ import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import BasicTable from './components/tables/BasicTable';
 import AgTable from './components/tables/SimpleGridExample';
+import HandsOnTableExample from './components/tables/HandsOnTableExample';
+
 
 export default (
   <Route path="/" component={App}>
@@ -17,6 +19,7 @@ export default (
     <Route path="course/:id" component={ManageCoursePage}/>
     <Route path="basic-table" component={BasicTable} />
     <Route path="ag-table" component={AgTable} />
+    <Route path="hot-table" component={HandsOnTableExample} />
 
   </Route>
 );

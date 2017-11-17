@@ -1,0 +1,33 @@
+.ht_master tr td {
+  background-color: #ffffff;
+}
+
+/* All headers */
+.handsontable th {
+  background-color: #ffffff;
+}
+
+/* Row headers */
+.ht_clone_left th {
+  background-color: #ffffff;
+}
+
+/* Column headers */
+.ht_clone_top th {
+  background-color: #ffffff;
+}
+
+.handsontable table thead th{
+
+  color: #CCCCCC;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.currentCol {
+  background-color: #ffffff !important;
+}
+
+.currentRow {
+  background-color: #ffffff !important;
+}

@@ -14,6 +14,8 @@ const Header = ({loading}) => {
       <Link to="/basic-table" activeClassName="active">Basic Table</Link>
       {" | "}
       <Link to="/ag-table" activeClassName="active">AG Table</Link>
+      {" | "}
+      <Link to="/hot-table" activeClassName="active">Hot Example</Link>
       {loading && <LoadingDots interval={100} dots={20}/>}
     </nav>
   );
