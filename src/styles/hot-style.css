@@ -1,5 +1,6 @@
 .ht_master tr td {
   background-color: #ffffff;
+  font-size:10px;
 }
 
 /* All headers */
@@ -10,6 +11,7 @@
 /* Row headers */
 .ht_clone_left th {
   background-color: #ffffff;
+  font-size:10px;
 }
 
 /* Column headers */
@@ -21,7 +23,7 @@
 
   color: #CCCCCC;
   font-weight:bold;
-  font-size:12px;
+  font-size:10px;
 }
 
 .currentCol {
