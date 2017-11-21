@@ -17,7 +17,25 @@ export class ManageCoursePage extends React.Component {
     };
     this.updateCourseState = this.updateCourseState.bind(this);
     this.saveCourse = this.saveCourse.bind(this);
+    this.handlePaste = this.handlePaste.bind(this);
   }
+
+  handlePaste(e) {
+    var clipboardData, pastedData;
+
+    // Stop data actually being pasted into div
+    e.stopPropagation();
+    e.preventDefault();
+
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text');
+
+    // Do whatever with pasteddata
+    console.log(pastedData);
+
+  }
+
   //react sometimes run it even if state did no change!
   componentWillReceiveProps(nextProps) {
     if (this.props.course.id != nextProps.course.id) {
@@ -71,6 +89,7 @@ export class ManageCoursePage extends React.Component {
                   course={this.state.course}
                   errors={this.state.errors}
                   saving={this.state.saving}
+                  handlePaste={this.handlePaste}
       />
     );
   }

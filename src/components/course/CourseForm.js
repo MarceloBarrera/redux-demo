@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
+const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors, handlePaste}) => {
   return (
     <form>
       <h1>Manage Course</h1>
@@ -27,6 +27,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         label="Category"
         value={course.category}
         onChange={onChange}
+        onPaste={handlePaste}
         error={errors.category}/>
 
       <TextInput
